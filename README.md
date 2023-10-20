@@ -1,62 +1,69 @@
-# WordCloud from URL 🌐
+# Wordcloud Generator 🌐🖼️
 
-## Description 📝
-
-This project is a Python application that generates a word cloud from the text content of a given webpage. The word cloud is generated using the WordCloud library in Python and is displayed using Matplotlib.
+This is a Python project that generates a word cloud from a webpage. The project follows the principles of clean architecture and uses a three-step TDD approach.
 
 ## Table of Contents 📚
 
-- [Installation](#installation-)
-- [Usage](#usage-)
-- [Execution](#execution-)
-- [TDD Steps](#tdd-steps-)
-- [Contributing](#contributing-)
-- [License](#license-)
+- [Wordcloud Generator 🌐🖼️](#wordcloud-generator-️)
+  - [Table of Contents 📚](#table-of-contents-)
+  - [Installation 📦](#installation-)
+  - [Clean Architecture 📚](#clean-architecture-)
+  - [Test-Driven Development (TDD) 🧪](#test-driven-development-tdd-)
+  - [Execution 🏃‍♀️](#execution-️)
+    - [Running Tests](#running-tests)
+    - [Running the Application](#running-the-application)
+  - [Contributing 🤝](#contributing-)
+  - [License 📄](#license-)
 
-## Installation 🛠️
+## Installation 📦
 
-To install the necessary dependencies, use the following command:
-
-```bash
-pip3 install requests BeautifulSoup4 wordcloud matplotlib
-```
-
-## Usage 📖
-
-To use this application, simply input the URL of the webpage you want to analyze when prompted. The application will then fetch the webpage, extract the text content, and generate a word cloud.
-
-## Execution 🚀
-
-To run the tests, use the following command:
+To install the necessary dependencies, run the following command:
 
 ```bash
-python3 -m unittest test_wordcloud
+pip3 install -r requirements.txt
 ```
 
-To run the script, use the following command:
+## Clean Architecture 📚
+
+The project is divided into three layers: the domain layer, the application layer, and the infrastructure layer.
+
+- The application layer contains the `fetch_text.py` file, which fetches the text from a webpage, and the `create_wordcloud.py` file, which creates a word cloud from a string of text.
+- The infrastructure layer is handled by the `requests` and `BeautifulSoup` libraries, which are used to fetch the webpage and parse the HTML, respectively.
+
+## Test-Driven Development (TDD) 🧪
+
+The project uses a three-step TDD approach:
+
+1. Write a failing test. 🚫
+2. Write the code to make the test pass. ✅
+3. Refactor the code to improve its design and readability. 🔄
+
+The tests are written using the `unittest` module in Python and are located in the `test_wordcloud_generator.py` file.
+
+## Execution 🏃‍♀️
+
+### Running Tests
+
+To run the tests, navigate to the directory containing the `test_wordcloud_generator.py` file and run the following command:
 
 ```bash
-python3 word_cloud.py
+python3 -m unittest test_wordcloud_generator.py
 ```
 
-## TDD Steps 🧪
+### Running the Application
 
-### Step 1: Red 🔴
+To run the application, navigate to the directory containing the `main.py` file and run the following command:
 
-First, we need to write a failing test for the fetch_text function. We can use the unittest module in Python to write our tests. Create a new file called `test_wordcloud.py` and write a test case for the `fetch_text` function.
+```bash
+python3 main.py
+```
 
-### Step 2: Green 🟢
-
-Next, we need to write code to make the test pass. In this case, the `fetch_text` function is already implemented in the `word_cloud.py` script, so we don't need to write any new code.
-
-### Step 3: Refactor 🔄
-
-Finally, we can refactor the `fetch_text` function to improve its structure and readability. For example, we can extract the creation of the `requests.get` object and the parsing of the page content into separate functions.
+You will be prompted to enter the URL of the webpage you want to analyze. The project will then fetch the text from the webpage, tokenize the text, and create a word cloud from the tokens.
 
 ## Contributing 🤝
 
-Contributions are welcome! Please feel free to submit a pull request or open an issue if you encounter any problems or have suggestions for improvement.
+If you would like to contribute to the project, please follow the TDD approach and create a pull request with your changes.
 
 ## License 📄
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
